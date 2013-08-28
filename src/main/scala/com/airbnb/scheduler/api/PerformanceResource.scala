@@ -20,7 +20,7 @@ import scala.collection.JavaConversions._
  * Returns a list of jobs, sorted by 50th percentile run times.
  */
 
-@Path(PathConstants.jobBasePath)
+@Path(PathConstants.jobsPerformancePath)
 @Produces(Array(MediaType.APPLICATION_JSON))
 class PerformanceResource @Inject()(
                                      val jobScheduler: JobScheduler,
@@ -30,7 +30,6 @@ class PerformanceResource @Inject()(
 
   private[this] val log = Logger.getLogger(getClass.getName)
 
-  @Path(PathConstants.jobsPerformancePath)
   @Timed
   @GET
   def list(): Response = {
